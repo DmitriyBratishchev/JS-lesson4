@@ -23,6 +23,13 @@ const Months = ['января','февраля', 'марта', 'апреля', '
 
 const Days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота']                
 
+
+const wordHours = ['час', 'часа','часов']
+
+const wordMinutes = ['минута', 'минуты', 'минут']
+
+const wordSeconds = ['секунда', 'секунды', 'секунд']
+
 const hourEndings = {
   lastNum1: '',
   lastNum234: 'а',
@@ -36,14 +43,16 @@ const msEndings = {
 }
 
 function getEnding(num, typeEndings) {
-  let ending = num.toString().substr(-1);
-  if (num === 11 || num === 12 || num === 13 || num === 14) {
-    return typeEndings.lastNumOther;
-  } else if(ending === '2' || ending === '3' || ending === '4') {
-    return typeEndings.lastNum234;
-  }else if(ending === '1'){
-    return typeEndings.lastNum1;
-  } else {
-    return typeEndings.lastNumOther;
+  if (11 <= num%100 && num%100 <= 14) {
+    return typeEndings[2];
+  }
+   else if(num%10 === 2 || num%10 === 3 || num%10 === 4) {
+    return typeEndings[1];
+  }
+  else if(num%10 === 1){
+    return typeEndings[0];
+  }
+   else {
+    return typeEndings[2];
   }
 }

@@ -15,17 +15,15 @@ function displayTime() {
     date + " " + month + " " + year + " года" + ", ";
   document.querySelector(".day").textContent = day + ",";
   document.querySelector(".time").textContent =
-    hour +
-    " час" +
-    getEnding(hour, hourEndings) +
+    hour + ' ' + getEnding(hour, wordHours) +
     " " +
     minute +
-    " минут" +
-    getEnding(minute, msEndings) +
+    " " +
+    getEnding(minute, wordMinutes) +
     " " +
     second +
-    " секунд" +
-    getEnding(second, msEndings) +
+    " " +
+    getEnding(second, wordSeconds) +
     ".";
 
   // console.log( 'Сегодня ' + date + ' ' + month + ' ' + year + ' года' + ', '
